@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -10,6 +8,9 @@ public class Button : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     [SerializeField] private Vector3 _sizeToScaleTo;
     private Vector3 originalScale = new Vector3(1f, 1f, 1f);
 
+    void OnEnable(){
+        transform.localScale = originalScale;
+    }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
