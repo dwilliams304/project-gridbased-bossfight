@@ -28,6 +28,7 @@ public class TileSpawner : MonoBehaviour
     }
 
     void SpawnTiles(){
+        Debug.Log("Attack cycle start");
         int whereToSpawn = Random.Range(0, _spawnPoints.Count);
         GameObject newTile = Instantiate(_spawnables.RandomFromList(), _spawnPoints[whereToSpawn].transform.position, Quaternion.identity);
 

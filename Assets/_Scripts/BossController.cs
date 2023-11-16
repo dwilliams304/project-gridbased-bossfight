@@ -10,5 +10,18 @@ public class BossController : MonoBehaviour
     public delegate void OnFinishedBossAttack();
     public static OnFinishedBossAttack onFinishedBossAttack;
 
-    
+    [SerializeField] private float _atkSpeed = 5f;
+
+
+    void Start(){
+        StartCoroutine(BossAttack());
+    }
+
+    IEnumerator BossAttack(){
+        while(true){
+            onStartBossAtack?.Invoke();
+            yield return new WaitForSeconds(_atkSpeed);
+            onFinishedBossAttack?.Invoke();
+        }
+    }
 }
