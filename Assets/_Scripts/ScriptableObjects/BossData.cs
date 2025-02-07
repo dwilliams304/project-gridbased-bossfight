@@ -1,24 +1,28 @@
+using System.Collections.Generic;
+using UnityEditor.EditorTools;
 using UnityEngine;
 
-[System.Flags]
 public enum ThreatLevel
 {
-    Local = 1,
-    Planetary = 2,
-    LocalSystem = 3,
-    Galactic = 4,
-    MultiGalactic = 5,
-    Universal = 6,
-    Multiversal = 7
+    Local,
+    Planetary,
+    LocalSystem,
+    Galactic,
+    LocalCluster,
+    Universal,
+    Multiversal
 }
 
-[System.Flags]
 public enum BossClassification
 {
-    Humanoid = 1,
-    Undead = 2,
-    Beast = 3,
-    Celestial = 4
+    Humanoid,
+    Undead,
+    Beast,
+    Celestial,
+    Entity,
+    Demon,
+    ArtificialIntelligence,
+    Unknown
 }
 
 namespace ContradictiveGames.ScriptableObjects
@@ -26,10 +30,32 @@ namespace ContradictiveGames.ScriptableObjects
     [CreateAssetMenu(fileName = "Boss Data", menuName = "Custom/BossData")]
     public class BossData : ScriptableObject
     {
+        [Header("Default Boss Information")]
         public Sprite BossImage;
         public string Name = "Default Name";
         public ThreatLevel ThreatLevel = ThreatLevel.Local;
         public BossClassification Classification = BossClassification.Humanoid;
         public string BossLore = "Default description";
+
+        [Header("Fight Stats")]
+        public int Health = 100;
+        public float AttackSpeed = 1f;
+        public int Damage = 1;
+        public int MaxSpawnableTiles = 0; //0 = no max
+        public int MaxSpecialTiles = 0; //0 = no max
+        
+
+        [Header("Tiles")]
+        public List<Tile> Tiles = new List<Tile>();
+
+
+
+        [Header("Dialogue Options")]
+        public List<Dialogue> OnBossDamaged = new List<Dialogue>();
+        public List<Dialogue> OnPlayerDamaged = new List<Dialogue>();
+        public List<Dialogue> BossIntroSpeech = new List<Dialogue>();
+        public List<Dialogue> OnBossVictorySpeech = new List<Dialogue>();
+        public List<Dialogue> OnPlayerVictorySpeech = new List<Dialogue>();
+
     }
 }
