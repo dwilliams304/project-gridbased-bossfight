@@ -20,3 +20,13 @@ MonoBehaviour:
   Health: 0
   AttackSpeed: 0
   Damage: 0
+  MaxSpawnableTiles: 0
+  MaxSpecialTiles: 0
+  Tiles: []
+  OnBossDamaged:
+  - Speech: 
+    Weight: 0
+  OnPlayerDamaged: []
+  BossIntroSpeech: []
+  OnBossVictorySpeech: []
+  OnPlayerVictorySpeech: []

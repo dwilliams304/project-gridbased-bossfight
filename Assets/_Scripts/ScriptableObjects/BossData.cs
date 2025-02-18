@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEditor.EditorTools;
 using UnityEngine;
 
 public enum ThreatLevel
@@ -51,11 +50,7 @@ namespace ContradictiveGames.ScriptableObjects
 
 
         [Header("Dialogue Options")]
-        public List<Dialogue> OnBossDamaged = new List<Dialogue>();
-        public List<Dialogue> OnPlayerDamaged = new List<Dialogue>();
-        public List<Dialogue> BossIntroSpeech = new List<Dialogue>();
-        public List<Dialogue> OnBossVictorySpeech = new List<Dialogue>();
-        public List<Dialogue> OnPlayerVictorySpeech = new List<Dialogue>();
+        public DialogueData DialogueData;
 
     }
 }
