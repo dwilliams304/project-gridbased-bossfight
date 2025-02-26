@@ -4043,9 +4043,9 @@ public class LTGUI {
                             Debug.Log(firstTouch());
                             Debug.Log(buttonLevels[i]);
                         }*/
-                        if(pressedWithinRect( buttons[i] )){
-                            hasNoOverlap = false; // there is an overlapping button that is higher
-                        }
+                        // if(pressedWithinRect( buttons[i] )){
+                        //     hasNoOverlap = false; // there is an overlapping button that is higher
+                        // }
                     }
                 }
             }
@@ -4061,28 +4061,28 @@ public class LTGUI {
         return hasNoOverlap;
     }
 
-    public static bool pressedWithinRect( Rect rect ){
-        Vector2 vec2 = firstTouch();
-        if(vec2.x<0f)
-            return false;
-        float vecY = Screen.height-vec2.y;
-        return (vec2.x > rect.x && vec2.x < rect.x + rect.width && vecY > rect.y && vecY < rect.y + rect.height);
-    }
+    // public static bool pressedWithinRect( Rect rect ){
+    //     Vector2 vec2 = firstTouch();
+    //     if(vec2.x<0f)
+    //         return false;
+    //     float vecY = Screen.height-vec2.y;
+    //     return (vec2.x > rect.x && vec2.x < rect.x + rect.width && vecY > rect.y && vecY < rect.y + rect.height);
+    // }
 
     public static bool checkWithinRect(Vector2 vec2, Rect rect){
         vec2.y = Screen.height-vec2.y;
         return (vec2.x > rect.x && vec2.x < rect.x + rect.width && vec2.y > rect.y && vec2.y < rect.y + rect.height);
     }
 
-    public static Vector2 firstTouch(){
-        if(Input.touchCount>0){
-            return Input.touches[0].position;
-        }else if(Input.GetMouseButton(0)){
-            return Input.mousePosition;
-        }
+    // public static Vector2 firstTouch(){
+    //     if(Input.touchCount>0){
+    //         return Input.touches[0].position;
+    //     }else if(Input.GetMouseButton(0)){
+    //         return Input.mousePosition;
+    //     }
 
-        return new Vector2(Mathf.NegativeInfinity,Mathf.NegativeInfinity);
-    }
+    //     return new Vector2(Mathf.NegativeInfinity,Mathf.NegativeInfinity);
+    // }
 
 }
 
